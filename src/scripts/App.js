@@ -1,5 +1,4 @@
 import WebGLView from './webgl/WebGLView';
-import GUIView from './gui/GUIView';
 
 export default class App {
 
@@ -9,7 +8,6 @@ export default class App {
 
 	init() {
 		this.initWebGL();
-		this.initGUI();
 		this.addListeners();
 		this.animate();
 		this.resize();
@@ -29,7 +27,7 @@ export default class App {
 
 		window.addEventListener('resize', this.resize.bind(this));
 		window.addEventListener('keyup', this.keyup.bind(this));
-		
+
 		const el = this.webgl.renderer.domElement;
 		el.addEventListener('click', this.click.bind(this));
 	}
@@ -46,14 +44,11 @@ export default class App {
 	// ---------------------------------------------------------------------------------------------
 
 	update() {
-		if (this.gui.stats) this.gui.stats.begin();
 		if (this.webgl) this.webgl.update();
-		if (this.gui) this.gui.update();
 	}
 
 	draw() {
 		if (this.webgl) this.webgl.draw();
-		if (this.gui.stats) this.gui.stats.end();
 	}
 
 	// ---------------------------------------------------------------------------------------------
