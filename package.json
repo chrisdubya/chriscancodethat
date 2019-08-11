@@ -19,7 +19,6 @@
     "start": "webpack-dev-server --config config/dev.js"
   },
   "dependencies": {
-    "@brunoimbrizi/controlkit": "^0.1.93",
     "browser-detect": "^0.2.28",
     "domready": "^1.0.8",
     "glsl-noise": "0.0.0",
