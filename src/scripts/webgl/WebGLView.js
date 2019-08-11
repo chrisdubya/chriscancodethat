@@ -76,8 +76,8 @@ export default class WebGLView {
 	}
 
 	next() {
-		if (this.currSample < this.samples.length - 1) this.goto(this.currSample + 1);
-		else this.goto(0);
+		// if (this.currSample < this.samples.length - 1) this.goto(this.currSample + 1);
+		// else this.goto(0);
 	}
 
 	// ---------------------------------------------------------------------------------------------

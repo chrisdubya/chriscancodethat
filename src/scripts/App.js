@@ -18,10 +18,6 @@ export default class App {
 		document.querySelector('.container').appendChild(this.webgl.renderer.domElement);
 	}
 
-	initGUI() {
-		this.gui = new GUIView(this);
-	}
-
 	addListeners() {
 		this.handlerAnimate = this.animate.bind(this);
 
