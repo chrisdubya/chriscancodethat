@@ -20,7 +20,7 @@ export default class InteractiveControls extends EventEmitter {
 		this.mouse = new THREE.Vector2();
 		this.offset = new THREE.Vector3();
 		this.intersection = new THREE.Vector3();
-		
+
 		this.objects = [];
 		this.hovered = null;
 		this.selected = null;
@@ -97,8 +97,7 @@ export default class InteractiveControls extends EventEmitter {
 		this.mouse.y = -((touch.y + this.rect.y) / this.rect.height) * 2 + 1;
 
 		this.raycaster.setFromCamera(this.mouse, this.camera);
-
-		/*
+		
 		// is dragging
 		if (this.selected && this.isDown) {
 			if (this.raycaster.ray.intersectPlane(this.plane, this.intersection)) {
@@ -106,7 +105,6 @@ export default class InteractiveControls extends EventEmitter {
 			}
 			return;
 		}
-		*/
 
 		const intersects = this.raycaster.intersectObjects(this.objects);
 
@@ -157,7 +155,7 @@ export default class InteractiveControls extends EventEmitter {
 
 	onLeave(e) {
 		this.onUp(e);
-		
+
 		this.emit('interactive-out', { object: this.hovered });
 		this.hovered = null;
 	}
