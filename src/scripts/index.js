@@ -1,5 +1,5 @@
 import ready from 'domready';
-import 'bootstrap';
+import '../scss/app.scss';
 
 import App from './App';
 
