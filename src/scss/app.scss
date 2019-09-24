@@ -16,6 +16,13 @@ body {
   padding: 0;
 }
 
+.navbar {
+	display: inline-block;
+	width: 100%;
+	margin: 0 auto;
+  text-align: center;
+}
+
 .navbar-brand span {
   text-decoration: underline;
 }
