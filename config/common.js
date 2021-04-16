@@ -14,6 +14,9 @@ module.exports = {
 		path: path.resolve(__root, "docs"),
 		filename: "bundle.js",
 	},
+	optimization: {
+		usedExports: true,
+	},
 	module: {
 		rules: [
 			{
