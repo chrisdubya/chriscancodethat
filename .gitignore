@@ -1,5 +1,5 @@
 node_modules/
-dist/
 
 # OS dotfiles
 .DS_Store
+node_modules

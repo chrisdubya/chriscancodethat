@@ -1,0 +1,29 @@
+@import "./variables";
+@import "~bootstrap/scss/bootstrap";
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
+@import "@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "@fortawesome/fontawesome-free/scss/solid.scss";
+@import "@fortawesome/fontawesome-free/scss/brands.scss";
+
+body {
+	background-color: #000;
+	margin: 0;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.container-fluid {
+	box-sizing: content-box;
+	padding: 0;
+}
+
+.navbar {
+	display: inline-block;
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.navbar-brand span {
+	text-decoration: underline;
+}

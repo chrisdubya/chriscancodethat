@@ -10,7 +10,7 @@
   ],
   "author": {
     "name": "Chris Williams",
-    "url": "http://chriscancodethat.xyz"
+    "url": "https://chriscancodethat.xyz"
   },
   "license": "MIT",
   "sideEffects": false,
@@ -19,18 +19,24 @@
     "start": "webpack-dev-server --config config/dev.js"
   },
   "dependencies": {
+    "bootstrap": "^4.3.1",
     "browser-detect": "^0.2.28",
     "domready": "^1.0.8",
     "glsl-noise": "0.0.0",
     "gsap": "^2.0.2",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.15.0",
+    "sass": "^1.62.1",
     "stats.js": "^0.17.0",
-    "three": "^0.98.0"
+    "three": "^0.127.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.52",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0-rc.1",
     "@babel/polyfill": "^7.0.0-beta.55",
     "@babel/preset-env": "^7.0.0-beta.52",
+    "@fortawesome/fontawesome-free": "^5.15.3",
+    "autoprefixer": "^9.6.1",
     "babel-loader": "^8.0.0-beta.4",
     "clean-webpack-plugin": "^0.1.19",
     "copy-webpack-plugin": "^4.5.2",
@@ -41,11 +47,13 @@
     "glslify-loader": "^1.0.2",
     "html-webpack-plugin": "^3.2.0",
     "imports-loader": "^0.8.0",
+    "postcss-loader": "^3.0.0",
     "raw-loader": "^0.5.1",
+    "sass-loader": "^7.2.0",
     "style-loader": "^0.21.0",
-    "webpack": "^4.15.1",
+    "webpack": "^4.39.1",
     "webpack-cli": "^3.0.8",
-    "webpack-dev-server": "^3.7.2",
+    "webpack-dev-server": "^3.11.2",
     "webpack-merge": "^4.1.3"
   }
 }
