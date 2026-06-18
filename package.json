@@ -1,59 +1,36 @@
 {
-  "name": "webpack-threejs",
-  "version": "1.0.1",
-  "description": "A simple boilerplate to start projects with Three.js using webpack.",
+  "name": "chriscancodethat",
+  "version": "2.0.0",
+  "description": "Interactive WebGL particle portfolio — chriscancodethat.xyz",
+  "type": "module",
   "keywords": [
+    "astro",
     "three.js",
-    "webpack",
+    "webgl",
     "glsl",
-    "glslify"
+    "particles"
   ],
   "author": {
     "name": "Chris Williams",
     "url": "https://chriscancodethat.xyz"
   },
   "license": "MIT",
-  "sideEffects": false,
   "scripts": {
-    "build": "NODE_OPTIONS=--openssl-legacy-provider webpack -p --config config/prod.js",
-    "start": "NODE_OPTIONS=--openssl-legacy-provider webpack-dev-server --config config/dev.js"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
   },
   "dependencies": {
-    "bootstrap": "^4.3.1",
-    "browser-detect": "^0.2.28",
-    "domready": "^1.0.8",
-    "glsl-noise": "0.0.0",
-    "gsap": "^2.0.2",
-    "jquery": "^3.4.1",
-    "popper.js": "^1.15.0",
-    "sass": "^1.62.1",
-    "stats.js": "^0.17.0",
-    "three": "^0.127.0"
+    "astro": "^6.4.8",
+    "gsap": "^3.15.0",
+    "three": "^0.184.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.52",
-    "@babel/plugin-syntax-dynamic-import": "^7.0.0-rc.1",
-    "@babel/polyfill": "^7.0.0-beta.55",
-    "@babel/preset-env": "^7.0.0-beta.52",
-    "@fortawesome/fontawesome-free": "^5.15.3",
-    "autoprefixer": "^9.6.1",
-    "babel-loader": "^8.0.0-beta.4",
-    "clean-webpack-plugin": "^0.1.19",
-    "copy-webpack-plugin": "^4.5.2",
-    "css-loader": "^0.28.11",
-    "file-loader": "^1.1.11",
-    "glslify": "^6.2.1",
-    "glslify-import-loader": "^0.1.2",
-    "glslify-loader": "^1.0.2",
-    "html-webpack-plugin": "^3.2.0",
-    "imports-loader": "^0.8.0",
-    "postcss-loader": "^3.0.0",
-    "raw-loader": "^0.5.1",
-    "sass-loader": "^7.2.0",
-    "style-loader": "^0.21.0",
-    "webpack": "^4.39.1",
-    "webpack-cli": "^3.0.8",
-    "webpack-dev-server": "^3.11.2",
-    "webpack-merge": "^4.1.3"
+    "@astrojs/check": "^0.9.9",
+    "@types/three": "^0.184.1",
+    "sass": "^1.101.0",
+    "typescript": "^6.0.3",
+    "vite-plugin-glsl": "^1.6.0"
   }
 }

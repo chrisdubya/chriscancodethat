@@ -1,0 +1,57 @@
+---
+import Nav from "../components/Nav.astro";
+import "../styles/global.scss";
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** Extra class on <body>, e.g. "is-home" to lock scrolling for the canvas. */
+  bodyClass?: string;
+}
+
+const {
+  title = "Chris Williams: Software Engineer",
+  description = "Chris Williams, Software Engineer: Personal Site",
+  bodyClass = "",
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL("/images/og-image.jpg", Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta
+      name="keywords"
+      content="web development, three.js, particles, interactive, javascript, webgl"
+    />
+    <meta name="author" content="Chris Williams" />
+    <link rel="canonical" href={canonical} />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:site_name" content="chriscancodethat.xyz" />
+    <meta property="og:url" content={canonical} />
+    <meta
+      property="og:description"
+      content="i make things...web things...3d web things...ar web things. i also like cats"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:type" content="image/jpeg" />
+
+    <!-- Twitter card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={ogImage} />
+  </head>
+  <body class={bodyClass}>
+    <Nav />
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,19 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base bodyClass="is-home">
+  <main>
+    <div class="gl-container"></div>
+  </main>
+</Base>
+
+<script>
+  // The particle canvas — the only JS shipped to this page. Astro/Vite bundle
+  // this module; it runs after the DOM is parsed (type="module" is deferred),
+  // which replaces the old `domready` boot.
+  import App from "../scripts/App";
+
+  const app = new App();
+  app.init();
+</script>
