@@ -148,8 +148,7 @@ export const cities: City[] = [
         name: 'The George Washington University',
         title: 'Columbian College of Arts & Sciences — Political Science & Government',
         dates: '2005–2009',
-        summary:
-          'Political Science & Government, Columbian College of Arts & Sciences.',
+        summary: '',
         tech: [],
       },
     ],

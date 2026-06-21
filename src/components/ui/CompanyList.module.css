@@ -3,7 +3,7 @@
   left: 24px;
   bottom: 64px;
   z-index: 20;
-  width: min(380px, calc(100vw - 48px));
+  width: min(420px, calc(100vw - 48px));
   max-height: 60vh;
   display: flex;
 }
@@ -54,7 +54,8 @@
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: 12px;
+  flex-wrap: wrap;
+  gap: 2px 12px;
   width: 100%;
   padding: 6px 8px;
   border-radius: 4px;
@@ -83,9 +84,11 @@
 .rowMain {
   display: inline-flex;
   align-items: baseline;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  flex: 1 1 auto;
   gap: 6px;
   min-width: 0;
+  white-space: nowrap;
 }
 
 .arrow {
