@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import type { Award, Social } from '../../data/resume';
 import styles from './AwardsFooter.module.css';
 
@@ -33,8 +34,31 @@ export function AwardsFooter({
   onResumeToggle,
   resumeOpen,
 }: AwardsFooterProps) {
+  const barRef = useRef<HTMLElement>(null);
+
+  // Expose the footer's live height as --footer-height so other fixed overlays
+  // (e.g. the mobile company-list dock) can sit above it instead of underneath.
+  useEffect(() => {
+    const el = barRef.current;
+    if (!el || typeof document === 'undefined') return;
+    const root = document.documentElement;
+    const apply = () =>
+      root.style.setProperty('--footer-height', `${el.offsetHeight}px`);
+    apply();
+
+    const ro =
+      typeof ResizeObserver !== 'undefined' ? new ResizeObserver(apply) : null;
+    ro?.observe(el);
+    window.addEventListener('resize', apply);
+    return () => {
+      ro?.disconnect();
+      window.removeEventListener('resize', apply);
+      root.style.removeProperty('--footer-height');
+    };
+  }, []);
+
   return (
-    <footer className={styles.bar} aria-label="Résumé status bar">
+    <footer ref={barRef} className={styles.bar} aria-label="Résumé status bar">
       <div className={styles.left}>
         <span className={styles.name}>{contact.name}</span>
         <span className={styles.sep} aria-hidden="true">
