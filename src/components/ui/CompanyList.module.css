@@ -112,23 +112,23 @@
   white-space: nowrap;
 }
 
-/* Full-width bottom sheet on mobile. */
+/* Full-width bottom sheet on mobile — docked directly above the status footer
+   (whose live height is published as --footer-height) so the two never overlap. */
 @media (max-width: 767px) {
   .dock {
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: var(--footer-height, 0px);
     width: 100%;
-    max-height: 50vh;
+    max-height: calc(50vh - var(--footer-height, 0px));
   }
 
   .panel {
     border-radius: 8px 8px 0 0;
-    border-bottom: none;
-    max-height: 50vh;
+    max-height: 100%;
   }
 
   .list {
-    max-height: calc(50vh - 90px);
+    max-height: calc(50vh - var(--footer-height, 0px) - 90px);
   }
 }
