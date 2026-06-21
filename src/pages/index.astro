@@ -2,8 +2,17 @@
 import Base from "../layouts/Base.astro";
 import GlobeScene from "../components/globe/GlobeScene.tsx";
 import { cities, awards, contact } from "../data/resume";
+import { buildProfilePageJsonLd } from "../lib/structuredData";
+
+const jsonLd = buildProfilePageJsonLd();
 ---
 <Base bodyClass="is-home">
+  <Fragment slot="head">
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(jsonLd)}
+    />
+  </Fragment>
   <div class="gl-root">
     <GlobeScene client:only="react" />
   </div>
