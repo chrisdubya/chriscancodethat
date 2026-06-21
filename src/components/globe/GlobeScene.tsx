@@ -15,6 +15,10 @@ import { CompanyPopover } from "../ui/CompanyPopover";
 import { AwardsFooter } from "../ui/AwardsFooter";
 import { FullResumePanel } from "../ui/FullResumePanel";
 
+// Tip the north pole toward the camera so the northern hemisphere (where every
+// city sits, ~25–51°N) faces the viewer instead of riding the top edge.
+const GLOBE_TILT = 0.52; // radians (~30°)
+
 // Default orientation: face the centroid of all city longitudes so the pins sit
 // in view from the start (cities cluster around the North Atlantic).
 const OVERVIEW_Y = (() => {
@@ -86,19 +90,21 @@ function RotatingGlobe({
   });
 
   return (
-    <group ref={groupRef} rotation={[0, OVERVIEW_Y, 0]}>
-      <Earth>
-        {cities.map((city) => (
-          <CityPin
-            key={city.id}
-            city={city}
-            hovered={hoveredCityId === city.id}
-            selected={selectedCityId === city.id}
-            onHover={onHover}
-            onSelect={onSelect}
-          />
-        ))}
-      </Earth>
+    <group rotation={[GLOBE_TILT, 0, 0]}>
+      <group ref={groupRef} rotation={[0, OVERVIEW_Y, 0]}>
+        <Earth>
+          {cities.map((city) => (
+            <CityPin
+              key={city.id}
+              city={city}
+              hovered={hoveredCityId === city.id}
+              selected={selectedCityId === city.id}
+              onHover={onHover}
+              onSelect={onSelect}
+            />
+          ))}
+        </Earth>
+      </group>
     </group>
   );
 }
@@ -173,7 +179,7 @@ export default function GlobeScene() {
       {!booted && <BootSequence onComplete={() => setBooted(true)} />}
 
       <Canvas
-        camera={{ position: [0, 1.0, 6], fov: 45 }}
+        camera={{ position: [0, 0, 6], fov: 45 }}
         dpr={[1, 1.5]}
         gl={{ antialias: true, alpha: true }}
         onPointerMissed={handleClearSelection}
