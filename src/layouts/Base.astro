@@ -1,9 +1,11 @@
 ---
-import "@fontsource/jetbrains-mono";
+// Only the font weights actually rendered in the DOM are imported (cuts
+// render-blocking CSS + font downloads). JetBrains Mono: 400 (body), 500
+// (.company / .awardLink). Orbitron (display headings): 600 + 700. The
+// in-canvas CityPin label uses a separate self-hosted public/fonts/*.woff.
+import "@fontsource/jetbrains-mono/400.css";
 import "@fontsource/jetbrains-mono/500.css";
-import "@fontsource/jetbrains-mono/700.css";
-import "@fontsource/orbitron/400.css";
-import "@fontsource/orbitron/500.css";
+import "@fontsource/orbitron/600.css";
 import "@fontsource/orbitron/700.css";
 import "../styles/global.scss";
 
@@ -15,13 +17,15 @@ interface Props {
 }
 
 const {
-  title = "Chris Williams — Interactive Globe Résumé",
-  description = "An interactive WebGL globe résumé — the cities and companies of Chris Williams, full-stack senior software engineer.",
+  title = "Chris Williams — Senior Software Engineer (React, Three.js, WebXR, AI)",
+  description = "Chris Williams is a senior software engineer in Miami, FL specializing in React, TypeScript, Three.js / WebGL, WebXR and AI/agentic systems. Explore his work history as an interactive 3D globe résumé.",
   bodyClass = "",
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogImage = new URL("/images/og-image.jpg", Astro.site);
+const ogImageAlt =
+  "Interactive WebGL globe résumé for Chris Williams, senior software engineer.";
 ---
 
 <!doctype html>
@@ -36,7 +40,15 @@ const ogImage = new URL("/images/og-image.jpg", Astro.site);
       content="chris williams, software engineer, resume, webgl, react three fiber, three.js, interactive, portfolio, globe"
     />
     <meta name="author" content="Chris Williams" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#05070a" />
     <link rel="canonical" href={canonical} />
+    <!--
+      No manual <link rel="preload"> for the body font: @fontsource emits a
+      content-hashed filename per build, so a hardcoded path would 404 (and
+      regress, not help). The bundled CSS references it early, and .gl-root
+      paints its gradient immediately for a fast LCP.
+    -->
     <link
       rel="icon"
       href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛸</text></svg>"
@@ -48,12 +60,22 @@ const ogImage = new URL("/images/og-image.jpg", Astro.site);
     <meta property="og:url" content={canonical} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="1097" />
+    <meta property="og:image:alt" content={ogImageAlt} />
 
     <!-- Twitter card -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
+
+    <!-- Page-specific head (e.g. JSON-LD structured data) -->
+    <slot name="head" />
   </head>
   <body class={bodyClass}>
     <slot />
