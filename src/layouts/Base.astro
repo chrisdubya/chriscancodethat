@@ -1,5 +1,10 @@
 ---
-import Nav from "../components/Nav.astro";
+import "@fontsource/jetbrains-mono";
+import "@fontsource/jetbrains-mono/500.css";
+import "@fontsource/jetbrains-mono/700.css";
+import "@fontsource/orbitron/400.css";
+import "@fontsource/orbitron/500.css";
+import "@fontsource/orbitron/700.css";
 import "../styles/global.scss";
 
 interface Props {
@@ -10,8 +15,8 @@ interface Props {
 }
 
 const {
-  title = "Chris Williams: Software Engineer",
-  description = "Chris Williams, Software Engineer: Personal Site",
+  title = "Chris Williams — Interactive Globe Résumé",
+  description = "An interactive WebGL globe résumé — the cities and companies of Chris Williams, full-stack senior software engineer.",
   bodyClass = "",
 } = Astro.props;
 
@@ -28,7 +33,7 @@ const ogImage = new URL("/images/og-image.jpg", Astro.site);
     <meta name="description" content={description} />
     <meta
       name="keywords"
-      content="web development, three.js, particles, interactive, javascript, webgl"
+      content="chris williams, software engineer, resume, webgl, react three fiber, three.js, interactive, portfolio, globe"
     />
     <meta name="author" content="Chris Williams" />
     <link rel="canonical" href={canonical} />
@@ -38,10 +43,7 @@ const ogImage = new URL("/images/og-image.jpg", Astro.site);
     <meta property="og:title" content={title} />
     <meta property="og:site_name" content="chriscancodethat.xyz" />
     <meta property="og:url" content={canonical} />
-    <meta
-      property="og:description"
-      content="i make things...web things...3d web things...ar web things. i also like cats"
-    />
+    <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:type" content="image/jpeg" />
@@ -51,7 +53,6 @@ const ogImage = new URL("/images/og-image.jpg", Astro.site);
     <meta name="twitter:image" content={ogImage} />
   </head>
   <body class={bodyClass}>
-    <Nav />
     <slot />
   </body>
 </html>
