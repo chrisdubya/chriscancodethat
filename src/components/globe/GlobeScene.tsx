@@ -55,12 +55,12 @@ function RotatingGlobe({
 }: RotatingGlobeProps) {
   const groupRef = useRef<THREE.Group>(null);
 
-  // Y-rotation that brings the focus point to front-center (toward +Z camera):
-  // the selected city, or the cities overview when nothing is selected.
+  // Y-rotation that brings the selected city to front-center (toward +Z
+  // camera). null → auto-rotate (no city selected).
   const targetY = useMemo(() => {
-    if (!selectedCityId) return OVERVIEW_Y;
+    if (!selectedCityId) return null;
     const city = cities.find((c) => c.id === selectedCityId);
-    if (!city) return OVERVIEW_Y;
+    if (!city) return null;
     const v = latLngToVec3(city.lat, city.lng, GLOBE_RADIUS);
     return Math.atan2(-v.x, v.z);
   }, [selectedCityId]);
@@ -70,7 +70,12 @@ function RotatingGlobe({
     if (!group) return;
     const dt = Math.min(delta, 0.1);
 
-    // Shortest-path angle toward the target, then damp (no auto-rotation).
+    // Idle: slow auto-rotation. Selected: ease the city to front.
+    if (targetY === null) {
+      if (!reducedMotion) group.rotation.y += dt * 0.12;
+      return;
+    }
+
     const cur = group.rotation.y;
     const twoPi = Math.PI * 2;
     const wrapped =
@@ -81,7 +86,7 @@ function RotatingGlobe({
   });
 
   return (
-    <group ref={groupRef}>
+    <group ref={groupRef} rotation={[0, OVERVIEW_Y, 0]}>
       <Earth>
         {cities.map((city) => (
           <CityPin

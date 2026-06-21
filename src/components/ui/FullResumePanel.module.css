@@ -66,6 +66,18 @@
   margin: 0 0 12px;
 }
 
+.skillGroup {
+  margin: 0 0 7px;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--term-muted);
+}
+
+.skillCategory {
+  color: var(--neon);
+  text-shadow: 0 0 6px var(--term-glow);
+}
+
 .companyLine {
   display: flex;
   align-items: baseline;

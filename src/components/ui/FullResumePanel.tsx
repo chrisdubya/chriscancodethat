@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { awards, cities, contact } from '../../data/resume';
+import { awards, cities, contact, skills } from '../../data/resume';
 import { TerminalOverlay } from './TerminalOverlay';
 import styles from './FullResumePanel.module.css';
 
@@ -53,6 +53,18 @@ export function FullResumePanel({
             {contact.phone}
           </p>
         </header>
+
+        {skills.length > 0 && (
+          <section className={styles.city}>
+            <h3 className={styles.cityName}>Skills</h3>
+            {skills.map((group) => (
+              <p key={group.category} className={styles.skillGroup}>
+                <span className={styles.skillCategory}>{group.category}:</span>{' '}
+                {group.items.join(' · ')}
+              </p>
+            ))}
+          </section>
+        )}
 
         {cities.map((city) => (
           <section key={city.id} className={styles.city}>

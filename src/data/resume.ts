@@ -48,6 +48,7 @@ export const cities: City[] = [
         summary:
           "Building and maintaining Hazel's school-based telehealth platform. Architected an AI-powered insurance-card text-extraction system (LLMs + computer vision) that streamlines patient intake, cuts manual data entry, and improves insurance-verification accuracy. Collaborate across product and engineering to ship scalable, reliable frontend and backend for critical telehealth workflows.",
         tech: ['React', 'TypeScript', 'Java (Spring)', 'LLMs', 'Computer Vision'],
+        remote: true,
       },
       {
         name: 'eMed',
@@ -133,6 +134,74 @@ export const cities: City[] = [
           'Quality assurance testing for retail fulfillment and customer-experience software systems. Wrote and executed test plans, surfaced and tracked defects, and partnered with engineering to validate releases and keep the end-to-end customer experience reliable.',
         tech: ['Quality Assurance', 'Test Planning', 'Software Testing'],
       },
+    ],
+  },
+  {
+    id: 'dc',
+    name: 'Washington',
+    label: 'Washington, DC',
+    lat: 38.9072,
+    lng: -77.0369,
+    companies: [
+      {
+        name: 'The George Washington University',
+        title: 'Columbian College of Arts & Sciences — Political Science & Government',
+        dates: '2005–2009',
+        summary:
+          'B.A. in Political Science & Government, Columbian College of Arts & Sciences.',
+        tech: [],
+      },
+    ],
+  },
+];
+
+export interface SkillGroup {
+  category: string;
+  items: string[];
+}
+
+export const skills: SkillGroup[] = [
+  {
+    category: 'Frontend',
+    items: [
+      'React',
+      'Next.js',
+      'TypeScript',
+      'Three.js',
+      'React Three Fiber',
+      'A-Frame',
+      'D3.js',
+    ],
+  },
+  {
+    category: 'Backend',
+    items: ['Node.js', 'Java (Spring)', 'Express', 'MongoDB', 'GraphQL'],
+  },
+  {
+    category: 'Cloud & DevOps',
+    items: ['AWS', 'GCP', 'Git'],
+  },
+  {
+    category: 'AI / Agentic Systems',
+    items: [
+      'Agentic workflows & multi-agent orchestration',
+      'Claude Code & GPT-based tool-using agents',
+      'Model Context Protocol (MCP)',
+      'Retrieval-Augmented Generation (RAG)',
+      'Tool invocation & function calling',
+      'Cursor / AI-assisted development',
+      'Hugging Face, fine-tuning & evaluation',
+      'AI image generation pipelines',
+    ],
+  },
+  {
+    category: 'Other',
+    items: [
+      'WebGL',
+      'WebXR',
+      'RESTful APIs',
+      'AR (Augmented Reality)',
+      'CV (Computer Vision)',
     ],
   },
 ];
