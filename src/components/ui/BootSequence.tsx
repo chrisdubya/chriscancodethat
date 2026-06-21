@@ -11,7 +11,7 @@ const LINES: readonly string[] = [
   '> initializing globe.sys ...',
   '> loading résumé.dat ...',
   '> geolocating career history ...',
-  '> 3 cities found: MIA · LON · NYC',
+  '> 4 cities found: MIA · NYC · DC · LON',
   '> render: OK',
   '> launch',
 ];

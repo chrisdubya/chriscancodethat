@@ -107,7 +107,9 @@ export default function GlobeScene() {
   const reducedMotion = usePrefersReducedMotion();
   const [booted, setBooted] = useState(false);
   const [hoveredCityId, setHoveredCityId] = useState<string | null>(null);
-  const [selectedCityId, setSelectedCityId] = useState<string | null>(null);
+  // Start with Miami selected (its list shown, globe eased to it). Auto-rotation
+  // resumes once the user deselects by clicking empty space.
+  const [selectedCityId, setSelectedCityId] = useState<string | null>('mia');
   const [selectedCompany, setSelectedCompany] = useState<Company | null>(null);
   const [resumeOpen, setResumeOpen] = useState(false);
   const resumeCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
