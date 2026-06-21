@@ -1,19 +1,34 @@
 ---
 import Base from "../layouts/Base.astro";
+import GlobeScene from "../components/globe/GlobeScene.tsx";
+import { cities, awards, contact } from "../data/resume";
 ---
-
 <Base bodyClass="is-home">
-  <main>
-    <div class="gl-container"></div>
+  <div class="gl-root">
+    <GlobeScene client:only="react" />
+  </div>
+
+  <!-- Static, crawlable résumé for SEO / no-WebGL fallback -->
+  <main class="seo-fallback">
+    <h1>{contact.name} — {contact.role}</h1>
+    <p>{contact.location} · {contact.email} · {contact.phone}</p>
+    {cities.map((city) => (
+      <section>
+        <h2>{city.label}</h2>
+        <ul>
+          {city.companies.map((c) => (
+            <li>
+              <h3>{c.name} — {c.title} ({c.dates})</h3>
+              <p>{c.summary}</p>
+              <p>{c.tech.join(", ")}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+    <section>
+      <h2>Awards</h2>
+      <ul>{awards.map((a) => <li>{a.title} — {a.detail}</li>)}</ul>
+    </section>
   </main>
 </Base>
-
-<script>
-  // The particle canvas — the only JS shipped to this page. Astro/Vite bundle
-  // this module; it runs after the DOM is parsed (type="module" is deferred),
-  // which replaces the old `domready` boot.
-  import App from "../scripts/App";
-
-  const app = new App();
-  app.init();
-</script>

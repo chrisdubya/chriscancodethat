@@ -1,0 +1,119 @@
+.window {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-panel);
+  border: 1px solid var(--term-border);
+  border-radius: 8px;
+  color: var(--term-fg);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.5;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.4),
+    0 12px 40px rgba(0, 0, 0, 0.55),
+    0 0 24px var(--term-glow);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  overflow: hidden;
+}
+
+.titleBar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--term-border);
+  background: rgba(255, 176, 0, 0.04);
+  user-select: none;
+}
+
+.dots {
+  display: inline-flex;
+  gap: 7px;
+  flex: 0 0 auto;
+}
+
+.dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.85;
+}
+
+.dot[data-color='red'] {
+  background: #ff5f56;
+}
+.dot[data-color='amber'] {
+  background: var(--neon);
+}
+.dot[data-color='green'] {
+  background: #27c93f;
+}
+
+.title {
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: var(--term-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.body {
+  position: relative;
+  padding: 14px 16px;
+  z-index: 1;
+}
+
+.footer {
+  position: relative;
+  padding: 8px 16px 12px;
+  border-top: 1px solid var(--term-border);
+  font-size: 12px;
+  color: var(--term-muted);
+  z-index: 1;
+}
+
+/* Subtle CRT scanline texture overlaid on the whole window. */
+.scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0px,
+    rgba(0, 0, 0, 0) 2px,
+    rgba(0, 0, 0, 0.18) 3px,
+    rgba(0, 0, 0, 0.18) 3px
+  );
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+}
+
+.cursor {
+  display: inline-block;
+  color: var(--neon);
+  text-shadow: 0 0 6px var(--term-glow);
+  animation: blink 1.05s steps(1) infinite;
+}
+
+@keyframes blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor {
+    animation: none;
+    opacity: 1;
+  }
+}

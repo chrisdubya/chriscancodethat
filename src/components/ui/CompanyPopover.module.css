@@ -1,0 +1,151 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(2, 3, 5, 0.62);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  animation: backdrop-in 0.18s ease both;
+}
+
+.dialog {
+  width: min(560px, 100%);
+  max-height: calc(100vh - 48px);
+  outline: none;
+  animation: dialog-in 0.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.panel {
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+}
+
+.head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--neon);
+  text-shadow: 0 0 8px var(--term-glow);
+  letter-spacing: 0.04em;
+}
+
+.close {
+  flex: 0 0 auto;
+  background: transparent;
+  border: 1px solid var(--term-border);
+  border-radius: 4px;
+  color: var(--term-muted);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  padding: 4px 8px;
+  cursor: pointer;
+  transition: color 0.12s ease, border-color 0.12s ease, background 0.12s ease;
+}
+
+.close:hover,
+.close:focus-visible {
+  color: var(--neon);
+  border-color: var(--term-glow);
+  background: rgba(255, 176, 0, 0.08);
+  outline: none;
+}
+
+.meta {
+  margin: 0 0 12px;
+  font-size: 13px;
+  color: var(--term-fg);
+}
+
+.at {
+  color: var(--term-muted);
+}
+
+.remote {
+  color: var(--neon-dim);
+}
+
+.tech {
+  margin: 0 0 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.techTag {
+  color: var(--neon);
+  font-size: 12px;
+  text-shadow: 0 0 5px var(--term-glow);
+}
+
+.summary {
+  margin: 0 0 12px;
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--term-fg);
+}
+
+.link {
+  margin: 4px 0 0;
+  font-size: 13px;
+  word-break: break-all;
+}
+
+.prompt {
+  color: var(--neon);
+  text-shadow: 0 0 6px var(--term-glow);
+}
+
+.link a {
+  color: var(--neon);
+}
+
+.soonBlock {
+  padding: 8px 0 4px;
+}
+
+.soon {
+  margin: 0 0 8px;
+  color: var(--neon);
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 8px var(--term-glow);
+}
+
+@keyframes backdrop-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .backdrop,
+  .dialog {
+    animation: none;
+  }
+}
