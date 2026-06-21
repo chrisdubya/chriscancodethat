@@ -71,6 +71,19 @@
   cursor: default;
 }
 
+.awardLink {
+  color: var(--term-fg);
+  text-decoration: none;
+  transition: color 0.12s ease, text-shadow 0.12s ease;
+}
+
+.awardLink:hover,
+.awardLink:focus-visible {
+  color: var(--neon);
+  text-shadow: 0 0 8px var(--term-glow);
+  outline: none;
+}
+
 .star {
   color: var(--neon);
   text-shadow: 0 0 6px var(--term-glow);

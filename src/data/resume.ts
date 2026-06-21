@@ -26,6 +26,7 @@ export interface City {
 export interface Award {
   title: string;
   detail: string;
+  url?: string;
 }
 
 export interface Social {
@@ -148,7 +149,7 @@ export const cities: City[] = [
         title: 'Columbian College of Arts & Sciences — Political Science & Government',
         dates: '2005–2009',
         summary:
-          'B.A. in Political Science & Government, Columbian College of Arts & Sciences.',
+          'Political Science & Government, Columbian College of Arts & Sciences.',
         tech: [],
       },
     ],
@@ -187,7 +188,6 @@ export const skills: SkillGroup[] = [
       'Agentic workflows & multi-agent orchestration',
       'Claude Code & GPT-based tool-using agents',
       'Model Context Protocol (MCP)',
-      'Retrieval-Augmented Generation (RAG)',
       'Tool invocation & function calling',
       'Cursor / AI-assisted development',
       'Hugging Face, fine-tuning & evaluation',
@@ -210,6 +210,7 @@ export const awards: Award[] = [
   {
     title: 'Webby Award Winner',
     detail: 'NYT × Magic Leap — David Bowie in 3-Dimensions',
+    url: 'https://winners.webbyawards.com/2019/apps-mobile-and-voice/apps-mobile-features/experimental-innovation/88659/nytimes-magicleap-david-bowie-in-three-dimensions',
   },
 ];
 

@@ -123,6 +123,18 @@
   color: var(--term-muted);
 }
 
+.awardLink {
+  color: var(--neon);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.awardLink:hover,
+.awardLink:focus-visible {
+  text-shadow: 0 0 8px var(--term-glow);
+  outline: none;
+}
+
 @keyframes panel-in {
   from {
     opacity: 0;

@@ -97,8 +97,19 @@ export function FullResumePanel({
             <ul className={styles.awards}>
               {awards.map((award) => (
                 <li key={award.title}>
-                  <span className={styles.company}>{award.title}</span> —{' '}
-                  {award.detail}
+                  {award.url ? (
+                    <a
+                      className={styles.awardLink}
+                      href={award.url}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                    >
+                      {award.title}
+                    </a>
+                  ) : (
+                    <span className={styles.company}>{award.title}</span>
+                  )}{' '}
+                  — {award.detail}
                 </li>
               ))}
             </ul>

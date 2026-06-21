@@ -51,7 +51,18 @@ export function AwardsFooter({
                 <span className={styles.star} aria-hidden="true">
                   *
                 </span>
-                {award.title}
+                {award.url ? (
+                  <a
+                    className={styles.awardLink}
+                    href={award.url}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
+                    {award.title}
+                  </a>
+                ) : (
+                  award.title
+                )}
               </li>
             ))}
           </ul>
