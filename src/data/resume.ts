@@ -128,7 +128,7 @@ export const cities: City[] = [
       {
         name: 'Apple Inc.',
         title: 'Quality Assurance Engineer',
-        dates: 'Early Career',
+        dates: '2005–2013',
         summary:
           'Quality assurance testing for retail fulfillment and customer-experience software systems. Wrote and executed test plans, surfaced and tracked defects, and partnered with engineering to validate releases and keep the end-to-end customer experience reliable.',
         tech: ['Quality Assurance', 'Test Planning', 'Software Testing'],
