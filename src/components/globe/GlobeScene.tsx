@@ -6,6 +6,7 @@ import * as THREE from "three";
 
 import { Earth } from "./Earth";
 import { CityPin } from "./CityPin";
+import { Starfield } from "./Starfield";
 import { GLOBE_RADIUS, latLngToVec3 } from "./hooks/latLngToVec3";
 import { awards, cities, contact, type Company } from "../../data/resume";
 
@@ -185,6 +186,7 @@ export default function GlobeScene() {
         onPointerMissed={handleClearSelection}
       >
         <ambientLight intensity={0.6} />
+        <Starfield />
         <RotatingGlobe
           hoveredCityId={hoveredCityId}
           selectedCityId={selectedCityId}
