@@ -52,12 +52,30 @@ export const cities: City[] = [
         remote: true,
       },
       {
+        name: 'Webaverse AI',
+        title: 'Freelance Senior Software Engineer',
+        dates: '2023–2025',
+        summary:
+          'Built AI chatbots over multiple LLMs (GPT, Claude, Mistral) in a modular React + TypeScript app with dynamic model selection and parameter tuning. Created a node-based visual AI image-generation tool and ported the app to WebXR for immersive 3D chatbot interaction on Apple Vision Pro and Meta Quest.',
+        tech: ['LLMs', 'GPT', 'Claude', 'Mistral', 'WebXR', 'React', 'TypeScript'],
+        remote: true,
+      },
+      {
         name: 'eMed',
         title: 'Senior Research Software Engineer',
         dates: '2021–2023',
         summary:
           'Developed AR/CV web-based diagnostic tools for at-home testing using Three.js, A-Frame, WebGL, React, and 8th Wall. Integrated Node.js with AWS for RESTful APIs and backend services, led R&D on emerging AR/CV tech to improve diagnostic accuracy and UX, and designed scalable diagnostic protocols and system architecture.',
         tech: ['Three.js', 'A-Frame', 'WebGL', 'React', '8th Wall', 'Node.js', 'AWS'],
+      },
+      {
+        name: 'Havas',
+        title: 'Software Engineer',
+        dates: '2020–2021',
+        summary:
+          'Sole developer launching a new digital-wellness initiative within Havas. Built immersive digital experiences with Three.js, A-Frame, React, and React Three Fiber, and partnered with stakeholders to define and deliver custom technical solutions and campaign strategy.',
+        tech: ['Three.js', 'A-Frame', 'React', 'React Three Fiber'],
+        remote: true,
       },
       {
         name: 'Magic Leap',
@@ -75,24 +93,6 @@ export const cities: City[] = [
         summary:
           'Built interactive data visualizations with D3.js and React. Authored Florida/Miami TopoJSON & GeoJSON for storytelling and partnered with journalists to enhance data-driven reporting with visual analytics.',
         tech: ['D3.js', 'React', 'TopoJSON', 'GeoJSON'],
-      },
-      {
-        name: 'Havas',
-        title: 'Software Engineer',
-        dates: '2020–2021',
-        summary:
-          'Sole developer launching a new digital-wellness initiative within Havas. Built immersive digital experiences with Three.js, A-Frame, React, and React Three Fiber, and partnered with stakeholders to define and deliver custom technical solutions and campaign strategy.',
-        tech: ['Three.js', 'A-Frame', 'React', 'React Three Fiber'],
-        remote: true,
-      },
-      {
-        name: 'Webaverse AI',
-        title: 'Freelance Senior Software Engineer',
-        dates: '2023–2025',
-        summary:
-          'Built AI chatbots over multiple LLMs (GPT, Claude, Mistral) in a modular React + TypeScript app with dynamic model selection and parameter tuning. Created a node-based visual AI image-generation tool and ported the app to WebXR for immersive 3D chatbot interaction on Apple Vision Pro and Meta Quest.',
-        tech: ['LLMs', 'GPT', 'Claude', 'Mistral', 'WebXR', 'React', 'TypeScript'],
-        remote: true,
       },
     ],
   },
