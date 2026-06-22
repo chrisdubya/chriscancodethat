@@ -28,7 +28,7 @@ const jsonLd = buildProfilePageJsonLd();
           {city.companies.map((c) => (
             <li>
               <h3>{c.name} — {c.title} ({c.dates})</h3>
-              <p>{c.summary}</p>
+              {c.summary && <p>{c.summary}</p>}
               <p>{c.tech.join(", ")}</p>
             </li>
           ))}

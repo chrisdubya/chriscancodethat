@@ -5,7 +5,7 @@ export interface Company {
   name: string;
   title: string;
   dates: string;
-  summary: string;
+  summary?: string;
   tech: string[];
   url?: string;
   /** Remote / freelance role — not physically located in the city. */
@@ -115,7 +115,6 @@ export const cities: City[] = [
         name: 'General Assembly London',
         title: 'Full-Stack Web Development Immersive',
         dates: 'Education',
-        summary: 'Full-Stack Web Development Immersive program.',
         tech: ['JavaScript', 'Full-Stack'],
       },
     ],
@@ -148,7 +147,6 @@ export const cities: City[] = [
         name: 'The George Washington University',
         title: 'Columbian College of Arts & Sciences — Political Science & Government',
         dates: '2005–2009',
-        summary: '',
         tech: [],
       },
     ],

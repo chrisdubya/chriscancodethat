@@ -6,6 +6,7 @@ import * as THREE from "three";
 
 import { Earth } from "./Earth";
 import { CityPin } from "./CityPin";
+import { Starfield } from "./Starfield";
 import { GLOBE_RADIUS, latLngToVec3 } from "./hooks/latLngToVec3";
 import { awards, cities, contact, type Company } from "../../data/resume";
 
@@ -92,6 +93,10 @@ function RotatingGlobe({
   return (
     <group rotation={[GLOBE_TILT, 0, 0]}>
       <group ref={groupRef} rotation={[0, OVERVIEW_Y, 0]}>
+        {/* Inside the rotating group so the backdrop spins with the globe on
+            auto-rotate and city eases (OrbitControls drag already moves both,
+            since it orbits the camera around the whole scene). */}
+        <Starfield />
         <Earth>
           {cities.map((city) => (
             <CityPin

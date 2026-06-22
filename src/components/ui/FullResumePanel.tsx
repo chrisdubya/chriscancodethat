@@ -84,7 +84,9 @@ export function FullResumePanel({
                 {company.placeholder ? (
                   <p className={styles.summary}>Details coming soon.</p>
                 ) : (
-                  <p className={styles.summary}>{company.summary}</p>
+                  company.summary && (
+                    <p className={styles.summary}>{company.summary}</p>
+                  )
                 )}
               </article>
             ))}
