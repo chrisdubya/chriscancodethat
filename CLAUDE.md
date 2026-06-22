@@ -16,7 +16,7 @@ one data file.
 
 ## Stack
 
-- **[Astro](https://astro.build) v6** — `output: 'static'`, ships zero JS except
+- **[Astro](https://astro.build) v7** — `output: 'static'`, ships zero JS except
   the one hydrated island.
 - **React 19** — only the globe is hydrated, via `client:only="react"` (it's
   pure WebGL, nothing to SSR).
