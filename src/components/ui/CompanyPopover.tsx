@@ -141,8 +141,7 @@ export function CompanyPopover({ company, onClose }: CompanyPopoverProps) {
                   ))}
                 </p>
               )}
-              {company.summary
-                .split('\n')
+              {company.summary?.split('\n')
                 .filter((para) => para.trim().length > 0)
                 .map((para, i) => (
                   <p key={i} className={styles.summary}>
