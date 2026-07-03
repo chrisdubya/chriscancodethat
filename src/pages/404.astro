@@ -1,0 +1,132 @@
+---
+// Custom 404 — GitHub Pages serves dist/404.html (with a real 404 status) for
+// any unknown path, replacing its generic "Page not found" screen. Static
+// terminal-styled panel, zero JS, noindex so crawlers drop stray URLs.
+import Base from "../layouts/Base.astro";
+---
+
+<Base
+  title="404 — Page Not Found | chriscancodethat.xyz"
+  description="This page doesn't exist. Head back to the interactive globe résumé."
+  noindex
+>
+  <main class="nf-root">
+    <div class="nf-panel">
+      <div class="nf-titlebar">
+        <span class="nf-dot"></span>
+        <span class="nf-dot"></span>
+        <span class="nf-dot"></span>
+        <span class="nf-title">error.log</span>
+      </div>
+      <div class="nf-body">
+        <p class="nf-code" aria-hidden="true">404</p>
+        <h1>PAGE NOT FOUND</h1>
+        <p class="nf-msg">
+          <span class="nf-prompt">$</span> The requested path does not exist on
+          this server.
+        </p>
+        <a class="nf-home" href="/">↩ return to globe</a>
+      </div>
+    </div>
+  </main>
+</Base>
+
+<style lang="scss">
+  .nf-root {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: grid;
+    place-items: center;
+    padding: 1.5rem;
+    background:
+      radial-gradient(
+        ellipse at 50% 40%,
+        rgba(255, 176, 0, 0.06),
+        var(--bg) 70%
+      );
+  }
+
+  .nf-panel {
+    width: min(30rem, 100%);
+    border: 1px solid var(--term-border);
+    background: var(--bg-panel);
+    box-shadow: 0 0 24px rgba(255, 176, 0, 0.12);
+  }
+
+  .nf-titlebar {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.45rem 0.75rem;
+    border-bottom: 1px solid var(--term-border);
+  }
+
+  .nf-dot {
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 50%;
+    background: var(--neon-dim);
+    opacity: 0.6;
+  }
+
+  .nf-title {
+    margin-left: auto;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    color: var(--term-muted);
+    text-transform: uppercase;
+  }
+
+  .nf-body {
+    padding: 2rem 1.5rem 2.25rem;
+    text-align: center;
+  }
+
+  .nf-code {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(3.5rem, 14vw, 5.5rem);
+    line-height: 1;
+    color: var(--neon);
+    text-shadow: 0 0 18px var(--term-glow);
+  }
+
+  h1 {
+    margin: 0.5rem 0 1.25rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.3em;
+    color: var(--term-fg);
+  }
+
+  .nf-msg {
+    margin: 0 0 1.75rem;
+    font-size: 0.85rem;
+    color: var(--term-muted);
+  }
+
+  .nf-prompt {
+    color: var(--neon);
+  }
+
+  .nf-home {
+    display: inline-block;
+    padding: 0.55rem 1.1rem;
+    border: 1px solid var(--term-border);
+    color: var(--neon);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    transition:
+      background 0.15s ease,
+      box-shadow 0.15s ease;
+
+    &:hover,
+    &:focus-visible {
+      background: rgba(255, 176, 0, 0.1);
+      box-shadow: 0 0 14px var(--term-glow);
+    }
+  }
+</style>

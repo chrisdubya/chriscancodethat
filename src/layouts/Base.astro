@@ -14,12 +14,15 @@ interface Props {
   description?: string;
   /** Extra class on <body>, e.g. "is-home" to lock scrolling for the canvas. */
   bodyClass?: string;
+  /** Keep the page out of search indexes (error pages). */
+  noindex?: boolean;
 }
 
 const {
   title = "Chris Williams — Senior Software Engineer (React, Three.js, WebXR, AI)",
   description = "Chris Williams is a senior software engineer in Miami, FL specializing in React, TypeScript, Three.js / WebGL, WebXR and AI/agentic systems. Explore his work history as an interactive 3D globe résumé.",
   bodyClass = "",
+  noindex = false,
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
@@ -40,9 +43,12 @@ const ogImageAlt =
       content="chris williams, software engineer, resume, webgl, react three fiber, three.js, interactive, portfolio, globe"
     />
     <meta name="author" content="Chris Williams" />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta
+      name="robots"
+      content={noindex ? "noindex" : "index, follow, max-image-preview:large"}
+    />
     <meta name="theme-color" content="#05070a" />
-    <link rel="canonical" href={canonical} />
+    {!noindex && <link rel="canonical" href={canonical} />}
     <!--
       No manual <link rel="preload"> for the body font: @fontsource emits a
       content-hashed filename per build, so a hardcoded path would 404 (and
